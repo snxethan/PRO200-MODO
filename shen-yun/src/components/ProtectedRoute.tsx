@@ -3,6 +3,8 @@
 import { useAuth } from "@/lib/AuthProvider";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import {LoaderCircle} from "lucide-react";
+import LoadingScreen from "@/components/ui/spinner";
 
 export default function ProtectedRoute({ children }: { children: React.ReactNode }) {
     const { user, loading } = useAuth();
@@ -19,7 +21,11 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
         }
     }, [user, loading, router]);
 
-    if (loading || !checkedAuth) return <p>Loading...</p>;
+    if (loading || !checkedAuth) 
+        return <LoadingScreen></LoadingScreen>;
 
     return <>{children}</>;
+
+
 }
+

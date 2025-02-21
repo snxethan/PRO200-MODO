@@ -12,7 +12,7 @@ export default function LoginPage() {
 
     useEffect(() => {
         if (user) {
-            router.push("/console");
+            router.push("/");
         }
     }, [user, router]);
 
