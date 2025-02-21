@@ -4,6 +4,7 @@ import { useAuth } from "@/lib/AuthProvider";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import Navbar from "@/components/Navbar";
 
 export default function LoginPage() {
     const { signIn, user } = useAuth();
@@ -17,44 +18,12 @@ export default function LoginPage() {
 
     return (
         <div className="bg-[#202C39] min-h-screen flex flex-col items-center p-6">
-            {/* Navigation Bar */}
-            <nav className="w-full flex items-center justify-between bg-[#68B3DF] p-4 rounded-lg shadow-md">
-                {/* Logo */}
-                <div className="flex items-center">
-                    <div className="w-14 h-14 rounded-full bg-[#E873CB] flex items-center justify-center">
-                        <img src="/images/logo.png" alt="Logo" className="w-10 h-10" />
-                    </div>
-                </div>
-
-                {/* Navigation Links */}
-                <div className="flex gap-4">
-                    {["Home", "Chat", "Docs"].map((item, index) => (
-                        <Button
-                            key={index}
-                            variant="outline"
-                            className="border-[#ED7E07] text-ivory hover:bg-[#ED7E07] hover:border-[#202C39]"
-                        >
-                            {item}
-                        </Button>
-                    ))}
-                </div>
-
-                {/* Login and Settings */}
-                <div className="flex gap-4">
-                    <Button
-                        variant="outline"
-                        className="border-[#ED7E07] text-ivory hover:bg-[#ED7E07] hover:border-[#202C39]"
-                    >
-                        Login
-                    </Button>
-                    <Button
-                        variant="outline"
-                        className="border-[#ED7E07] text-ivory hover:bg-[#ED7E07] hover:border-[#202C39]"
-                    >
-                        ⚙
-                    </Button>
-                </div>
-            </nav>
+            {/* Navbar */}
+            <div className="w-full">
+                <Navbar/>
+            </div>
+            
+            
 
             {/* Login Form */}
             <div className="bg-gray-700 p-8 mt-10 rounded-xl shadow-md w-[400px] text-center">
