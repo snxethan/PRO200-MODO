@@ -5,6 +5,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Settings } from "lucide-react";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 import { useAuth } from "@/lib/AuthProvider";
 
 // Sample documents data
@@ -20,46 +21,9 @@ export default function DocsPage() {
     return (
         <div className="min-h-screen flex flex-col bg-[#202C39]"> {/* Background applied here */}
             {/* Navbar */}
-            <nav className="bg-[#68B3DF] p-4 flex justify-between items-center shadow-md">
-                <div className="flex items-center gap-4">
-                    <Avatar className="bg-[#E873CB] p-1">
-                        <AvatarImage src="shen-yun/public/images/ModoLogo.png" alt="Chatbot Logo" />
-                        <AvatarFallback>CB</AvatarFallback>
-                    </Avatar>
-
-                    <Link href="/">
-                        <Button className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
-                            Home
-                        </Button>
-                    </Link>
-                    <Link href="/console/chat">
-                        <Button className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
-                            Chat
-                        </Button>
-                    </Link>
-                    <Link href="/console/docs">
-                        <Button className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
-                            Docs
-                        </Button>
-                    </Link>
-                </div>
-
-                <div className="flex gap-4">
-                    {user ? (
-                        <Button onClick={logout} className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
-                            Logout
-                        </Button>
-                    ) : (
-                        <Link href="/login">
-                            <Button className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
-                                Login
-                            </Button>
-                        </Link>
-                    )}
-
-                    <Settings className="text-[#FAFFEB] cursor-pointer hover:text-[#ED7E07]" size={24} />
-                </div>
-            </nav>
+            <div className="w-full">
+                <Navbar />
+            </div>
 
             {/* Document Container */}
             <main className="p-6 flex-grow">
