@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 
+
 export default function ChatPage() {
     const [messages, setMessages] = useState([
         { text: "Hello, I’m Modo, what idea would you like help with today?", sender: "bot" },
@@ -13,10 +14,19 @@ export default function ChatPage() {
 
     return (
         <ProtectedRoute>
+            
+
+
+
             <div className="bg-[#202C39] min-h-screen flex flex-col">
+
+                
+
+
                 {/* Navbar */}
                 <div className="w-full">
                     <Navbar />
+                    
                 </div>
                 
                 
