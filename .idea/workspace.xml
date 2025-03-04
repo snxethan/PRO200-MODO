@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8da998c-e055-4402-bb5f-13c74ca41ce8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/discord.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shen-yun/src/app/not-found.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shen-yun/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/app/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shen-yun/src/app/signUp/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/app/signUp/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shen-yun/src/lib/AuthProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/lib/AuthProvider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shen-yun/src/lib/firebase.ts" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/lib/firebase.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shen-yun/src/lib/ErrorUtils.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shen-yun/src/app/Login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/app/Login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shen-yun/src/app/SignUp/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/app/SignUp/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shen-yun/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/components/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shen-yun/src/components/ProtectedRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/components/ProtectedRoute.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +44,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Auth&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -75,6 +71,8 @@
       <workItem from="1740677904797" duration="10000" />
       <workItem from="1740678009180" duration="1830000" />
       <workItem from="1741109616389" duration="2224000" />
+      <workItem from="1741113030162" duration="143000" />
+      <workItem from="1741113208712" duration="640000" />
     </task>
     <servers />
   </component>

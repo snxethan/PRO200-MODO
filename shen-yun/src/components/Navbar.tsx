@@ -2,10 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Settings } from "lucide-react";
 import Link from "next/link";
 import { useAuth } from "@/lib/AuthProvider";
-import popover from "./PopoverConfig";
 import PopoverConfig from "./PopoverConfig";
 
 export default function Navbar() {
@@ -24,12 +22,12 @@ export default function Navbar() {
                         Home
                     </Button>
                 </Link>
-                <Link href="/console/chat">
+                <Link href="/Console/Chat">
                     <Button className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
                         Chat
                     </Button>
                 </Link>
-                <Link href="/console/docs">
+                <Link href="/Console/Docs">
                     <Button className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
                         Docs
                     </Button>
@@ -42,14 +40,14 @@ export default function Navbar() {
                         Logout
                     </Button>
                 ) : (
-                    <Link href="/login">
+                    <Link href="/Login">
                         <Button className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
                             Login
                         </Button>
                     </Link>
                 )}
 
-                <PopoverConfig isHidden= {location.pathname !== "/console/chat"} />
+                <PopoverConfig isHidden= {location.pathname !== "/Console/Chat"} />
 
                     
                 
