@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
+import { checkError } from "@/lib/ErrorUtils";
 
 export default function LoginPage() {
     const { signInWithGoogle, signInWithEmail, user } = useAuth();
@@ -30,30 +31,10 @@ export default function LoginPage() {
             await signInWithEmail(email, password);
         } catch (error: any) {
             console.error("Error signing in:", error);
-            checkError(error.message);
+            checkError(error.message, setError);
         }
     }
-
-    function checkError(errorCode: string) {
-        if (errorCode) {
-            if (errorCode === "auth/invalid-email") {
-                setError("Invalid email format. Please check your email.");
-            } else if (errorCode === "auth/user-not-found") {
-                setError("No account found with this email.");
-            } else if (errorCode === "auth/wrong-password") {
-                setError("Incorrect password. Please try again.");
-            } else if (errorCode == "auth/invalid-credential"){
-                setError("Invalid credentials. Please check your email and password.");
-            } else if (errorCode === "auth/user-disabled") {
-                setError("This account has been disabled. Please contact support.");
-            } else if (errorCode === "auth/network-request-failed") {
-                setError("Network error. Please check your internet connection.");
-            } else {
-                setError("An unexpected error occurred. Please try again.");
-            }
-        }
-    }
-
+    
     return (
         <div className="bg-[#202C39] min-h-screen flex flex-col items-center p-6">
             <div className="w-full">
@@ -88,7 +69,7 @@ export default function LoginPage() {
                 >
                     Login
                 </Button>
-                <Link href="/signUp">
+                <Link href="/SignUp">
                     <Button
                         variant="outline"
                         className="border-[#ED7E07] text-ivory w-full mb-4">

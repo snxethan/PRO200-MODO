@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import { signUpWithEmail } from "@/lib/firebase";
+import { checkError } from "@/lib/ErrorUtils";
 
 export default function SignUpPage() {
     const router = useRouter();
@@ -24,25 +25,7 @@ export default function SignUpPage() {
             router.push("/"); // Redirect to homepage after successful sign-up
         } catch (error: any) {
             console.error("Error signing in:", error);
-            checkError(error.message);
-        }
-    }
-
-    const checkError = (errorCode: string) => {
-        if (errorCode) {
-            if (errorCode === "auth/invalid-email") {
-                setError("Invalid email format. Please check your email.");
-            } else if (errorCode === "auth/email-already-in-use") {
-                setError("This email is already in use. Please use a different email.");
-            } else if (errorCode === "auth/weak-password") {
-                setError("Password is too weak. Please use a stronger password.");
-            } else if (errorCode === "auth/network-request-failed") {
-                setError("Network error. Please check your internet connection.");
-            } else if (errorCode === "auth/operation-not-allowed") {
-                setError("This operation is not allowed. Please contact support.");
-            } else {
-                setError("An unexpected error occurred. Please try again.");
-            }
+            checkError(error.message, setError);
         }
     }
 
