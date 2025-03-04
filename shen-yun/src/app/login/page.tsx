@@ -2,14 +2,17 @@
 
 import { useAuth } from "@/lib/AuthProvider";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
 
 export default function LoginPage() {
-    const { signIn, user } = useAuth();
+    const { signInWithGoogle, signInWithEmail, user } = useAuth();
     const router = useRouter();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
     useEffect(() => {
         if (user) {
@@ -17,47 +20,74 @@ export default function LoginPage() {
         }
     }, [user, router]);
 
+    const handleSignIn = async () => {
+        if (!email || !password) {
+            setError("Email and password are required");
+            return;
+        }
+        setError("");
+        try {
+            await signInWithEmail(email, password);
+        } catch (error: any) {
+            console.error("Error signing in:", error);
+            checkError(error.message);
+        }
+    }
+
+    function checkError(errorCode: string) {
+        if (errorCode) {
+            if (errorCode === "auth/invalid-email") {
+                setError("Invalid email format. Please check your email.");
+            } else if (errorCode === "auth/user-not-found") {
+                setError("No account found with this email.");
+            } else if (errorCode === "auth/wrong-password") {
+                setError("Incorrect password. Please try again.");
+            } else if (errorCode == "auth/invalid-credential"){
+                setError("Invalid credentials. Please check your email and password.");
+            } else if (errorCode === "auth/user-disabled") {
+                setError("This account has been disabled. Please contact support.");
+            } else if (errorCode === "auth/network-request-failed") {
+                setError("Network error. Please check your internet connection.");
+            } else {
+                setError("An unexpected error occurred. Please try again.");
+            }
+        }
+    }
+
     return (
         <div className="bg-[#202C39] min-h-screen flex flex-col items-center p-6">
-            {/* Navbar */}
             <div className="w-full">
                 <Navbar/>
             </div>
-            
-            
-
-            {/* Login Form */}
             <div className="bg-gray-700 p-8 mt-10 rounded-xl shadow-md w-[400px] text-center">
                 <h2 className="text-[#FAFFEB] text-lg mb-4">Login</h2>
-
+                {error && <div className="text-red-500 mb-4">{error}</div>}
                 <div className="text-left text-[#FAFFEB] mb-2">Email</div>
                 <input
                     type="text"
                     className="w-full p-2 rounded-md mb-4 bg-white text-black"
-                    defaultValue={""}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
-
                 <div className="text-left text-[#FAFFEB] mb-2">Password</div>
                 <input
                     type="password"
                     className="w-full p-2 rounded-md mb-4 bg-white text-black"
-                    defaultValue={""}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
-
                 <Button
-                    onClick={signIn}
+                    onClick={signInWithGoogle}
                     className="bg-[#ED7E07] text-[#FAFFEB] w-full py-2 rounded-full mb-4"
                 >
                     &lt;Sign In with Google&gt;
                 </Button>
-
                 <Button
-                    variant="outline"
-                    className="border-[#ED7E07] text-ivory w-full mb-4"
+                    className="bg-[#ED7E07] text-[#FAFFEB] w-full py-2 rounded-full mb-4"
+                    onClick={handleSignIn}
                 >
                     Login
                 </Button>
-
                 <Link href="/signUp">
                     <Button
                         variant="outline"
