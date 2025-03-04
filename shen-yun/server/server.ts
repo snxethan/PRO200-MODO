@@ -19,3 +19,7 @@ io.on('connection', (socket) => {
         io.emit('message', msg);
     });
 });
+
+const PORT = process.env.PORT || 3001;
+io.listen(Number(PORT));
+console.log(`WebSocket server running on port ${PORT}`);
