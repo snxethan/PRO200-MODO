@@ -1,5 +1,5 @@
 ﻿import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -14,14 +14,33 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
 
-export const signIn = async () => {
+export const logout = async () => {
+    await signOut(auth);
+};
+
+export const signInWithGoogle = async () => {
     try {
+        const auth = getAuth();
         await signInWithPopup(auth, provider);
-    } catch (error) {
-        console.error("Error signing in:", error);
+    } catch (error: any) {
+        throw new Error(error.code);
     }
 };
 
-export const logout = async () => {
-    await signOut(auth);
+export const signInWithEmail = async (email: string, password: string) => {
+    try {
+        const auth = getAuth();
+        await signInWithEmailAndPassword(auth, email, password);
+    } catch (error: any) {
+        throw new Error(error.code);
+    }
+};
+
+export const signUpWithEmail = async (email: string, password: string) => {
+    try {
+        const auth = getAuth();
+        await createUserWithEmailAndPassword(auth, email, password);
+    } catch (error: any) {
+        throw new Error(error.code);
+    }
 };

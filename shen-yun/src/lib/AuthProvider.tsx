@@ -2,12 +2,14 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged, User } from "firebase/auth";
-import { auth, signIn, logout } from "@/lib/firebase"; 
+import { auth, signInWithGoogle, logout, signInWithEmail, signUpWithEmail } from "@/lib/firebase";
 
 type AuthContextType = {
     user: User | null;
     loading: boolean;
-    signIn: () => Promise<void>;
+    signInWithGoogle: () => Promise<void>;
+    signInWithEmail: (email: string, password: string) => Promise<void>;
+    signUpWithEmail: (email: string, password: string) => Promise<void>;
     logout: () => Promise<void>;
 };
 
@@ -27,7 +29,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }, []);
 
     return (
-        <AuthContext.Provider value={{ user, loading, signIn, logout }}>
+        <AuthContext.Provider value={{ user, loading, signInWithGoogle, signInWithEmail, signUpWithEmail, logout }}>
             {children}
         </AuthContext.Provider>
     );
