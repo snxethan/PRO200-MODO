@@ -1,46 +1,55 @@
 ﻿"use client";
 
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Settings } from "lucide-react";
-import Link from "next/link";
-import Navbar from "@/components/Navbar";
+import { useState, useEffect } from "react";
+import { collection, query, onSnapshot } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 import { useAuth } from "@/lib/AuthProvider";
 import ProtectedRoute from "@/components/ProtectedRoute";
+import Navbar from "@/components/Navbar";
+import ConversationCard from "@/components/ConversationCard";
 
-// Sample documents data
-const documents = [
-    { id: "1", title: "Project Proposal", content: "This is the initial project proposal outlining key features." },
-    { id: "2", title: "Meeting Notes", content: "Summary of our last meeting and action items." },
-    { id: "3", title: "Technical Specs", content: "Details on the tech stack and implementation plan." },
-];
+interface Conversation {
+    id: string;
+    title: string;
+    description: string;
+}
 
 export default function DocsPage() {
-    const { user, logout } = useAuth();
+    const { user } = useAuth();
+    const [conversations, setConversations] = useState<Conversation[]>([]);
+    useEffect(() => {
+        if (!user) return;
+
+        const q = query(collection(db, `users/${user.uid}/conversations`));
+        const unsubscribe = onSnapshot(q, (snapshot) => {
+            const convos = snapshot.docs.map((doc) => {
+                const data = doc.data();
+                return { id: doc.id, title: data.title, description: data.description };
+            });
+            setConversations(convos);
+        });
+
+        return () => unsubscribe();
+    }, [user]);
 
     return (
         <ProtectedRoute>
-            <div className="min-h-screen flex flex-col bg-[#202C39]"> {/* Background applied here */}
+            <div className="min-h-screen flex flex-col bg-[#202C39]">
                 {/* Navbar */}
                 <div className="w-full">
                     <Navbar />
                 </div>
 
-                {/* Document Container */}
                 <main className="p-6 flex-grow">
-                    <h1 className="text-2xl text-[#FAFFEB] mb-4">Documents</h1>
+                    <h1 className="text-2xl text-[#FAFFEB] mb-4">Saved Conversations</h1>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {documents.map((doc) => (
-                            <Card key={doc.id} className="shadow-md">
-                                <CardHeader>
-                                    <CardTitle className="text-[#202C39]">{doc.title}</CardTitle>
-                                </CardHeader>
-                                <CardContent className="bg-[#68B3DF] text-[#202C39] p-4 rounded-b-lg">
-                                    <p>{doc.content}</p>
-                                </CardContent>
-                            </Card>
-                        ))}
+                        {conversations.length > 0 ? (
+                            conversations.map((conv) => (
+                                <ConversationCard key={conv.id} id={conv.id} title={conv.title} description={conv.description} />
+                            ))
+                        ) : (
+                            <p className="text-[#FAFFEB]">No saved conversations yet.</p>
+                        )}
                     </div>
                 </main>
             </div>

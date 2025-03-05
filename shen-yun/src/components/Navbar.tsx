@@ -34,11 +34,14 @@ export default function Navbar() {
                 </Link>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex gap-4 items-center">
                 {user ? (
-                    <Button onClick={logout} className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
-                        Logout
-                    </Button>
+                    <>
+                        <span className="text-[#FAFFEB]">{user.email}</span>
+                        <Button onClick={logout} className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
+                            Logout
+                        </Button>
+                    </>
                 ) : (
                     <Link href="/Login">
                         <Button className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
@@ -47,10 +50,7 @@ export default function Navbar() {
                     </Link>
                 )}
 
-                <PopoverConfig isHidden= {location.pathname !== "/Console/Chat"} />
-
-                    
-                
+                <PopoverConfig isHidden={location.pathname !== "/Console/Chat"} />
             </div>
         </nav>
     );
