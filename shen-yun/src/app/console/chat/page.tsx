@@ -80,7 +80,7 @@ export default function ChatPage() {
 
 
                 {/* Message Input */}
-                <div className="p-4 bg-[#FAFFEB] rounded-full m-4 flex w-4/5 max-w-2xl mx-auto">
+                <div className="p-4 bg-[#FAFFEB] rounded-full m-4 flex max-w-5xl mx-auto w-[100%]">
                     <Input
                         type="text"
                         value={input}
