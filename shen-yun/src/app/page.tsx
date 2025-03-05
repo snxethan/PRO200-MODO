@@ -24,22 +24,11 @@ export default function HomePage() {
                     structured design documents.
                     <br/>
                     <br/>
-                    
                     Whether you are brainstorming a new product, crafting a game concept, or planning a software 
-                    architecture, Modo helps you:
+                    architecture, Modo is here to help.
                     <br/>
-                    <br/>
-                    <ul>
-                        <li>Expand Your Ideas – Modo asks the right questions to push your creativity further</li>
-                        <li>Generate Clear Design Documents – From technical blueprints to creative briefs, Modo <br/>
-                            structures your thoughts into well-organized documents</li>
-                        <li>Collaborate Seamlessly – Work faster with AI-assisted iteration and refinements</li>
-                    </ul>
-                    
                     <br/>
                     Turn your inspiration into reality. Let Modo bring your ideas to life
-
-                    Start Creating with Modo Today
                 </p>
 
               <div className="mt-6">
