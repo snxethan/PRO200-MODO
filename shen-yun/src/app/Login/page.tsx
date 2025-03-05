@@ -34,7 +34,7 @@ export default function LoginPage() {
             checkError(error.message, setError);
         }
     }
-    
+
     return (
         <div className="bg-[#202C39] min-h-screen flex flex-col items-center p-6">
             <div className="w-full">
@@ -58,16 +58,17 @@ export default function LoginPage() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <Button
-                    onClick={signInWithGoogle}
-                    className="bg-[#ED7E07] text-[#FAFFEB] w-full py-2 rounded-full mb-4"
-                >
-                    &lt;Sign In with Google&gt;
-                </Button>
-                <Button
                     className="bg-[#ED7E07] text-[#FAFFEB] w-full py-2 rounded-full mb-4"
                     onClick={handleSignIn}
                 >
                     Login
+                </Button>
+                <Button
+                    onClick={signInWithGoogle}
+                    className="bg-[#FAFFEB] text-[#ED7E07] w-full py-2 rounded-full mb-4 flex items-center justify-center"
+                >
+                    <img src="/images/google-icon.svg" alt="Google Icon" className="w-4 h-4 mr-2" />
+                    Login with Google
                 </Button>
                 <Link href="/SignUp">
                     <Button

@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Link from "next/link";
-import { signUpWithEmail } from "@/lib/firebase";
+import {signInWithGoogle, signUpWithEmail} from "@/lib/firebase";
 import { checkError } from "@/lib/ErrorUtils";
 
 export default function SignUpPage() {
@@ -64,17 +64,18 @@ export default function SignUpPage() {
 
                 <Button
                     className="bg-[#ED7E07] text-[#FAFFEB] w-full py-2 rounded-full mb-4"
-                >
-                    &lt;Sign Up with Google&gt;
-                </Button>
-                <Button
-                    className="bg-[#ED7E07] text-[#FAFFEB] w-full py-2 rounded-full mb-4"
                     onClick={handleSignUp}
                 >
                     Sign Up
                 </Button>
-
-                <Link href="/login">
+                <Button
+                    onClick={() => signInWithGoogle()}
+                    className="bg-[#FAFFEB] text-[#ED7E07] w-full py-2 rounded-full mb-4 flex items-center justify-center"
+                >
+                    <img src="/images/google-icon.svg" alt="Google Icon" className="w-4 h-4 mr-2" />
+                    Sign Up with Google
+                </Button>
+                <Link href="/Login">
                     <Button
                         variant="outline"
                         className="border-[#ED7E07] text-ivory w-full mb-4">
