@@ -23,7 +23,21 @@ export default function ChatPage() {
     const sendMessage = () => {
         if (!input.trim() || waitingForResponse) return;
 
-        setMessages((prevMessages) => [...prevMessages, { text: input, sender: "user" }]);
+        setMessages((prevMessages) => {
+            const newMessage = { text: input, sender: "user" };
+
+            // If it's the first user message, modify it
+            if (prevMessages.filter(msg => msg.sender === "user").length === 0) {
+                newMessage.text = `I need you to speak to me with a/an FWEAKY personality, with that personality on a scale from 1-10 \n
+                    with you being at a/an PSCALE. You can also only respond in NUMSEN sentences or \n
+                    less, and only ask 1 question at a time until it is answered. I am going to tell you about an idea and \n
+                    you need to ask me questions that will help expand the design and specifications of my \n
+                    idea. My idea is: \"${input}\". `;
+            }
+
+            return [...prevMessages, newMessage];
+        });
+        
         setInput(""); 
         setWaitingForResponse(true);
 
@@ -33,6 +47,12 @@ export default function ChatPage() {
         }, 1000);
     };
 
+    useEffect(() => {
+        if (messages.length === 0) { // Ensures message is only sent once
+            setMessages([{ text: "Hello, I'm MODO! What idea would you like to start building today?", sender: "bot" }]);
+        }
+    }, []);
+    
     useEffect(() => {
         if (chatRef.current) {
             chatRef.current.scrollTop = chatRef.current.scrollHeight;
