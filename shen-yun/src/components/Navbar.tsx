@@ -37,7 +37,7 @@ export default function Navbar() {
             <div className="flex gap-4 items-center">
                 {user ? (
                     <>
-                        <span className="text-[#FAFFEB]">{user.email}</span>
+                        <span className="text-[#68B3DF]">{user.email}</span>
                         <Button onClick={logout} className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
                             Logout
                         </Button>
