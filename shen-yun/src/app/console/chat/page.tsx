@@ -20,7 +20,14 @@ export default function ChatPage() {
     const sendMessage = () => {
         if (!input.trim() || waitingForResponse) return;
 
-        setMessages((prevMessages) => [...prevMessages, { text: input, sender: "user" }]);
+        setMessages((prevMessages) => {
+            const newMessage = { text: input, sender: "user" };
+
+            
+
+            return [...prevMessages, newMessage];
+        });
+        
         setInput(""); 
         setWaitingForResponse(true);
 
@@ -34,6 +41,10 @@ export default function ChatPage() {
         }, 1000);
     };
 
+    
+
+    
+    
     // Auto-scroll to the latest message
     useEffect(() => {
         if (chatRef.current) {

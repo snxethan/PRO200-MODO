@@ -47,7 +47,7 @@ export default function Navbar() {
                     </Link>
                 )}
 
-                <PopoverConfig isHidden= {location.pathname !== "/Console/Chat"} />
+                <PopoverConfig isHidden= {location?.pathname !== "/Console/Chat"} />
 
                     
                 
