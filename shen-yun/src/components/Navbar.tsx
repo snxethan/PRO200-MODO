@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import Link from "next/link";
@@ -8,6 +9,12 @@ import PopoverConfig from "./PopoverConfig";
 
 export default function Navbar() {
     const { user, logout } = useAuth();
+    const [currentPath, setCurrentPath] = useState("");
+
+    // Ensure `location` is only accessed on the client side
+    useEffect(() => {
+        setCurrentPath(window.location.pathname);
+    }, []);
 
     return (
         <nav className="bg-[#68B3DF] p-4 flex justify-between items-center shadow-md">
@@ -50,7 +57,7 @@ export default function Navbar() {
                     </Link>
                 )}
 
-                <PopoverConfig isHidden={location.pathname !== "/Console/Chat"} />
+                <PopoverConfig isHidden={currentPath !== "/Console/Chat"} />
             </div>
         </nav>
     );

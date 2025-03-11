@@ -6,6 +6,11 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
+import axios from 'axios';
+import { db } from "@/lib/firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { useAuth } from "@/lib/AuthProvider";
+import { useRouter } from "next/navigation";
 
 export default function ChatPage() {
     interface Message {
@@ -13,46 +18,71 @@ export default function ChatPage() {
         sender: string;
     }
 
+    const { user } = useAuth();
+    const router = useRouter();
     const [messages, setMessages] = useState<Message[]>([]);
-    const [input, setInput] = useState(""); 
+    const [input, setInput] = useState("");
     const [waitingForResponse, setWaitingForResponse] = useState(false);
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const chatRef = useRef<HTMLDivElement>(null);
 
-    const sendMessage = () => {
+    const sendMessage = async () => {
         if (!input.trim() || waitingForResponse) return;
 
-        setMessages((prevMessages) => {
-            const newMessage = { text: input, sender: "user" };
-
-            // If it's the first user message, modify it
-            if (prevMessages.filter(msg => msg.sender === "user").length === 0) {
-                newMessage.text = `I need you to speak to me with a/an FWEAKY personality, with that personality on a scale from 1-10 \n
-                    with you being at a/an PSCALE. You can also only respond in NUMSEN sentences or \n
-                    less, and only ask 1 question at a time until it is answered. I am going to tell you about an idea and \n
-                    you need to ask me questions that will help expand the design and specifications of my \n
-                    idea. My idea is: \"${input}\". `;
-            }
-
-            return [...prevMessages, newMessage];
-        });
-        
-        setInput(""); 
+        setMessages((prevMessages) => [...prevMessages, { text: input, sender: "user" }]);
+        setInput("");
         setWaitingForResponse(true);
 
-        setTimeout(() => {
-            setMessages((prevMessages) => [...prevMessages, { text: "I'm thinking...", sender: "bot" }]);
+        try {
+            const response = await axios.post("/api/chat", { prompt: input });
+            setMessages((prevMessages) => [...prevMessages, { text: response.data.text, sender: "bot" }]);
+        } catch (error) {
+            console.error("Error:", error);
+            setMessages((prevMessages) => [...prevMessages, { text: "Error fetching response from OpenAI", sender: "bot" }]);
+        } finally {
             setWaitingForResponse(false);
-        }, 1000);
+        }
+    };
+
+    const saveChat = async () => {
+        const generatedTitle = title.trim()
+            ? title
+            : `Chat on ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}`;
+
+        const userMessages = messages.filter(msg => msg.sender === "user").map(msg => msg.text);
+        const generatedDescription = description.trim()
+            ? description
+            : userMessages.length > 0
+                ? userMessages.join(" ").slice(0, 150) + "..."
+                : "No user input available.";
+
+        if (user) {
+            try {
+                await addDoc(collection(db, `users/${user.uid}/conversations`), {
+                    title: generatedTitle,
+                    description: generatedDescription,
+                    messages,
+                    createdAt: new Date(),
+                });
+
+                setTitle("");
+                setDescription("");
+                alert("Chat saved successfully!");
+                router.push("/Console/Docs"); // Redirect to the docs page
+            } catch (error) {
+                console.error("Error saving chat:", error);
+                alert("Error saving chat.");
+            }
+        }
     };
 
     useEffect(() => {
-        if (messages.length === 0) { // Ensures message is only sent once
+        if (messages.length === 0) {
             setMessages([{ text: "Hello, I'm MODO! What idea would you like to start building today?", sender: "bot" }]);
         }
     }, []);
-    
+
     useEffect(() => {
         if (chatRef.current) {
             chatRef.current.scrollTop = chatRef.current.scrollHeight;
@@ -63,23 +93,20 @@ export default function ChatPage() {
         <ProtectedRoute>
             <div className="bg-[#202C39] min-h-screen flex flex-col items-center">
                 <div className="w-full">
-                <Navbar />
+                    <Navbar />
                 </div>
-                
-                {/* Chat Container */}
+
                 <Card className="w-full max-w-2xl h-[75vh] p-6 rounded-2xl shadow-lg flex flex-col mt-6 overflow-hidden bg-[#1E2A38] border-[#68B3DF] border-2">
-                    {/* Messages Container */}
                     <div className="flex flex-col flex-1 space-y-4 overflow-y-auto p-4 scrollbar-hide" ref={chatRef}>
                         {messages.map((msg, index) => (
                             <div key={index} className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
-                                <div className={`rounded-xl px-4 py-2 max-w-lg break-words ${msg.sender === "bot" ? "bg-[#E873CB] text-[#FAFFEB]" : "bg-[#68B3DF] text-[#FAFFEB]"}`}> 
+                                <div className={`rounded-xl px-4 py-2 max-w-lg break-words ${msg.sender === "bot" ? "bg-[#E873CB] text-[#FAFFEB]" : "bg-[#68B3DF] text-[#FAFFEB]"}`}>
                                     {msg.text}
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    {/* Title and Description Inputs */}
                     <div className="p-4 space-y-2">
                         <Input
                             type="text"
@@ -98,8 +125,6 @@ export default function ChatPage() {
                     </div>
                 </Card>
 
-
-                {/* Message Input */}
                 <div className="p-4 bg-[#FAFFEB] rounded-full m-4 flex max-w-5xl mx-auto w-[100%]">
                     <Input
                         type="text"
@@ -115,6 +140,9 @@ export default function ChatPage() {
                         disabled={waitingForResponse}
                     >
                         Send
+                    </Button>
+                    <Button onClick={saveChat} className="ml-2 bg-[#68B3DF] text-white">
+                        Save Chat
                     </Button>
                 </div>
             </div>

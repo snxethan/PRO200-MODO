@@ -1,6 +1,3 @@
-"use client";
-
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 
 interface ConversationCardProps {
@@ -9,20 +6,20 @@ interface ConversationCardProps {
     description: string;
 }
 
-export default function ConversationCard({ id, title, description }: ConversationCardProps) {
+const ConversationCard: React.FC<ConversationCardProps> = ({ id, title, description }) => {
     const router = useRouter();
 
+    const handleClick = () => {
+        console.log(`Navigating to /Console/Chat/${id}`); // Debugging
+        router.push(`/Console/Chat/${id}`); // 🔹 Updated path
+    };
+
     return (
-        <Card
-            className="cursor-pointer shadow-md hover:shadow-lg transition-all"
-            onClick={() => router.push(`/chat/${id}`)}
-        >
-            <CardHeader>
-                <CardTitle className="text-[#202C39]">{title}</CardTitle>
-            </CardHeader>
-            <CardContent className="bg-[#68B3DF] text-[#202C39] p-4 rounded-b-lg">
-                <p>{description}</p>
-            </CardContent>
-        </Card>
+        <div onClick={handleClick} className="cursor-pointer p-4 bg-[#1E2A38] rounded-md shadow-md hover:bg-[#68B3DF]">
+            <h2 className="text-lg font-bold text-[#FAFFEB]">{title || "Untitled Chat"}</h2>
+            <p className="text-sm text-[#FAFFEB]">{description || "No description available."}</p>
+        </div>
     );
-}
+};
+
+export default ConversationCard;
