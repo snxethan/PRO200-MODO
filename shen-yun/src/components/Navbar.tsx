@@ -29,12 +29,12 @@ export default function Navbar() {
                         Home
                     </Button>
                 </Link>
-                <Link href="/Console/Chat">
+                <Link href="/console/chat">
                     <Button className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
                         Chat
                     </Button>
                 </Link>
-                <Link href="/Console/Docs">
+                <Link href="/console/docs">
                     <Button className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
                         Docs
                     </Button>

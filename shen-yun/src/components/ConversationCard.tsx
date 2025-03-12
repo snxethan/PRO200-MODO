@@ -11,7 +11,7 @@ const ConversationCard: React.FC<ConversationCardProps> = ({ id, title, descript
 
     const handleClick = () => {
         console.log(`Navigating to /Console/Chat/${id}`); // Debugging
-        router.push(`/Console/Chat/${id}`); // 🔹 Updated path
+        router.push(`/console/chat/${id}`); // 🔹 Updated path
     };
 
     return (
