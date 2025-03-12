@@ -14,7 +14,9 @@ export async function POST(req: Request) {
             "https://api.openai.com/v1/chat/completions",
             {
                 "model": "gpt-4o-mini",
-                messages: [{ role: "system", content: "You are a helpful assistant." }, { role: "user", content: prompt }],
+                messages: [{ role: "system", content:
+                        "I ask one question at a time until answered. I'll share an idea, and you’ll ask questions to refine its design and specifications." },
+                    { role: "user", content: prompt }],
                 max_tokens: 150,
                 temperature: 0.7,
             },

@@ -15,12 +15,30 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import { Settings } from 'lucide-react';
+import axios from 'axios';
 
 export default function PopoverConfig({ isHidden }: { isHidden: boolean }) {
-    // State for storing values
     const [personality, setPersonality] = useState<string | undefined>(undefined);
     const [personalityStrength, setPersonalityStrength] = useState<number>(33);
     const [yapness, setYapness] = useState<number>(33);
+
+    const sendMessageToChatbot = async (message: string) => {
+        try {
+            await axios.post("/api/chat", { prompt: message });
+        } catch (error) {
+            console.error("Error sending message to chatbot:", error);
+        }
+    };
+
+    const handlePersonalityStrengthChange = (val: number[]) => {
+        setPersonalityStrength(val[0]);
+        sendMessageToChatbot(`Personality strength set to ${val[0]}`);
+    };
+
+    const handleYapnessChange = (val: number[]) => {
+        setYapness(val[0]);
+        sendMessageToChatbot(`Yapness set to ${val[0]}`);
+    };
 
     return (
         <div className={`flex ${isHidden ? "hidden" : ""}`}>
@@ -31,7 +49,6 @@ export default function PopoverConfig({ isHidden }: { isHidden: boolean }) {
                 <PopoverContent className="bg-[#68B3DF] text-[#FAFFEB] mt-5 rounded-md border-2 border-orange-500 w-60 pb-4">
                     <div className="text-center mb-2">MODO Config</div>
 
-                    {/* Select Dropdown for Personality (with state binding) */}
                     <Select value={personality} onValueChange={setPersonality}>
                         <SelectTrigger className="w-[180px] text-black mb-1">
                             <SelectValue placeholder="Personality" />
@@ -45,7 +62,6 @@ export default function PopoverConfig({ isHidden }: { isHidden: boolean }) {
                         </SelectContent>
                     </Select>
 
-                    {/* Sliders */}
                     <div className="mb-2">
                         Personality Strength
                         <Slider
@@ -53,7 +69,7 @@ export default function PopoverConfig({ isHidden }: { isHidden: boolean }) {
                             value={[personalityStrength]}
                             max={100}
                             step={1}
-                            onValueChange={(val) => setPersonalityStrength(val[0])}
+                            onValueChange={handlePersonalityStrengthChange}
                         />
                     </div>
 
@@ -63,16 +79,9 @@ export default function PopoverConfig({ isHidden }: { isHidden: boolean }) {
                             value={[yapness]}
                             max={100}
                             step={1}
-                            onValueChange={(val) => setYapness(val[0])}
+                            onValueChange={handleYapnessChange}
                         />
                     </div>
-
-                    {/*/!* Debug Output (Remove in Production) *!/*/}
-                    {/*<div className="text-sm mt-2 text-white">*/}
-                    {/*    <p>Personality: {personality}</p>*/}
-                    {/*    <p>Personality Strength: {personalityStrength}</p>*/}
-                    {/*    <p>Yapness: {yapness}</p>*/}
-                    {/*</div>*/}
                 </PopoverContent>
             </Popover>
         </div>
