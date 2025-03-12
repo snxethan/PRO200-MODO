@@ -12,6 +12,7 @@ import { collection, addDoc } from "firebase/firestore";
 import { useAuth } from "@/lib/AuthProvider";
 import { useRouter } from "next/navigation";
 
+
 export default function ChatPage() {
     interface Message {
         text: string;
@@ -95,7 +96,8 @@ export default function ChatPage() {
                 <div className="w-full">
                     <Navbar />
                 </div>
-
+                
+                {/* Chat Container */}
                 <Card className="w-full max-w-2xl h-[75vh] p-6 rounded-2xl shadow-lg flex flex-col mt-6 overflow-hidden bg-[#1E2A38] border-[#68B3DF] border-2">
                     <div className="flex flex-col flex-1 space-y-4 overflow-y-auto p-4 scrollbar-hide" ref={chatRef}>
                         {messages.map((msg, index) => (
@@ -145,6 +147,7 @@ export default function ChatPage() {
                         Save Chat
                     </Button>
                 </div>
+                {/* Chat Messages (Scrollable) */}
             </div>
         </ProtectedRoute>
     );
