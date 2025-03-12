@@ -20,7 +20,7 @@ interface Conversation {
 }
 
 export default function ChatDetailPage() {
-    const { id } = useParams(); // ✅ Ensures correct ID extraction
+    const { id } = useParams();
     const [conversation, setConversation] = useState<Conversation | null>(null);
     const { user } = useAuth();
 

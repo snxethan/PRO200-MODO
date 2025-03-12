@@ -70,7 +70,7 @@ export default function ChatPage() {
                 setTitle("");
                 setDescription("");
                 alert("Chat saved successfully!");
-                router.push("/Console/Docs"); // Redirect to the docs page
+                router.push("/console/docs"); // Redirect to the docs page
             } catch (error) {
                 console.error("Error saving chat:", error);
                 alert("Error saving chat.");
@@ -114,14 +114,14 @@ export default function ChatPage() {
                             type="text"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
-                            placeholder="Enter a title..."
+                            placeholder="Document Title..."
                             className="bg-white text-black w-full p-2 rounded-md"
                         />
                         <Input
                             type="text"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
-                            placeholder="Enter a brief description..."
+                            placeholder="Document description..."
                             className="bg-white text-black w-full p-2 rounded-md"
                         />
                     </div>
