@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8da998c-e055-4402-bb5f-13c74ca41ce8" name="Changes" comment="changes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shen-yun/src/app/Console/Chat/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/app/Console/Chat/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shen-yun/src/app/Console/Chat/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/app/Console/Chat/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shen-yun/src/components/ConversationCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/components/ConversationCard.tsx" afterDir="false" />
+    <list default="true" id="a8da998c-e055-4402-bb5f-13c74ca41ce8" name="Changes" comment="xd">
+      <change beforePath="$PROJECT_DIR$/shen-yun/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/app/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shen-yun/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shen-yun/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/components/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shen-yun/src/components/ProtectedRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/components/ProtectedRoute.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,12 +29,12 @@
     &quot;assignee&quot;: &quot;snxethan&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/snxethan/ShenYun.git",
-    "accountId": "7a35fb87-7172-4026-ad36-6a1ec4458807"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/snxethan/ShenYun.git&quot;,
+    &quot;accountId&quot;: &quot;7a35fb87-7172-4026-ad36-6a1ec4458807&quot;
   }
-}]]></component>
+}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -45,21 +44,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\NEU\\Y2\\Q2\\PRO200-S2\\PROJECT\\ShenYun\\shen-yun\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\NEU\\Y2\\Q2\\PRO200-S2\\PROJECT\\ShenYun\\shen-yun\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -86,6 +85,7 @@
       <workItem from="1741714113918" duration="4564000" />
       <workItem from="1741764522426" duration="3693000" />
       <workItem from="1741769472766" duration="710000" />
+      <workItem from="1741771081237" duration="354000" />
     </task>
     <task id="LOCAL-00001" summary="Added AI and Documentation saving!">
       <option name="closed" value="true" />
@@ -103,7 +103,31 @@
       <option name="project" value="LOCAL" />
       <updated>1741769641029</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="ss">
+      <option name="closed" value="true" />
+      <created>1741771257730</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1741771257730</updated>
+    </task>
+    <task id="LOCAL-00004" summary="changes">
+      <option name="closed" value="true" />
+      <created>1741771308661</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741771308661</updated>
+    </task>
+    <task id="LOCAL-00005" summary="xd">
+      <option name="closed" value="true" />
+      <created>1741771367715</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1741771367715</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,7 +138,9 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Added AI and Documentation saving!" />
+    <MESSAGE value="ss" />
     <MESSAGE value="changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes" />
+    <MESSAGE value="xd" />
+    <option name="LAST_COMMIT_MESSAGE" value="xd" />
   </component>
 </project>
