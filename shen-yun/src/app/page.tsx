@@ -30,7 +30,7 @@ export default function HomePage() {
                 </p>
 
               <div className="mt-6">
-                  <Link href="/signUp">
+                  <Link href="/SignUp">
                       <Button className="bg-[#ED7E07] hover:bg-[#FAFFEB] text-[#FAFFEB] hover:text-[#ED7E07] text-2xl">
                           Start Creating with Modo and Sign Up Today!
                       </Button>

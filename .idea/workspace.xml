@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8da998c-e055-4402-bb5f-13c74ca41ce8" name="Changes" comment="xd">
-      <change beforePath="$PROJECT_DIR$/shen-yun/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/app/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shen-yun/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shen-yun/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shen-yun/src/components/ProtectedRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/shen-yun/src/components/ProtectedRoute.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="a8da998c-e055-4402-bb5f-13c74ca41ce8" name="Changes" comment="a" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +80,7 @@
       <workItem from="1741714113918" duration="4564000" />
       <workItem from="1741764522426" duration="3693000" />
       <workItem from="1741769472766" duration="710000" />
-      <workItem from="1741771081237" duration="354000" />
+      <workItem from="1741771081237" duration="789000" />
     </task>
     <task id="LOCAL-00001" summary="Added AI and Documentation saving!">
       <option name="closed" value="true" />
@@ -127,7 +122,31 @@
       <option name="project" value="LOCAL" />
       <updated>1741771367715</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="changes signup &amp; login">
+      <option name="closed" value="true" />
+      <created>1741771451851</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1741771451851</updated>
+    </task>
+    <task id="LOCAL-00007" summary="xx">
+      <option name="closed" value="true" />
+      <created>1741771666223</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1741771666223</updated>
+    </task>
+    <task id="LOCAL-00008" summary="a">
+      <option name="closed" value="true" />
+      <created>1741771720243</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1741771720243</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +160,9 @@
     <MESSAGE value="ss" />
     <MESSAGE value="changes" />
     <MESSAGE value="xd" />
-    <option name="LAST_COMMIT_MESSAGE" value="xd" />
+    <MESSAGE value="changes signup &amp; login" />
+    <MESSAGE value="xx" />
+    <MESSAGE value="a" />
+    <option name="LAST_COMMIT_MESSAGE" value="a" />
   </component>
 </project>
