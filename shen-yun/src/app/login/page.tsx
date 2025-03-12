@@ -70,7 +70,7 @@ export default function LoginPage() {
                     <img src="/images/google-icon.svg" alt="Google Icon" className="w-4 h-4 mr-2" />
                     Login with Google
                 </Button>
-                <Link href="/SignUp">
+                <Link href="/signUp">
                     <Button
                         variant="outline"
                         className="border-[#ED7E07] text-ivory w-full mb-4">

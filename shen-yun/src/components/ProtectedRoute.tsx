@@ -14,7 +14,7 @@ export default function ProtectedRoute({ children }: { children: React.ReactNode
     useEffect(() => {
         if (!loading) {
             if (!user) {
-                router.push("/Login");
+                router.push("/login");
             } else {
                 setCheckedAuth(true);
             }

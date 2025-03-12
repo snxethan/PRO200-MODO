@@ -50,7 +50,7 @@ export default function Navbar() {
                         </Button>
                     </>
                 ) : (
-                    <Link href="/Login">
+                    <Link href="/login">
                         <Button className="border-2 border-[#ED7E07] text-[#FAFFEB] hover:bg-[#ED7E07] hover:border-[#202C39]">
                             Login
                         </Button>
