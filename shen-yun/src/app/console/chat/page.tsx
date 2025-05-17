@@ -6,16 +6,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
-<<<<<<< Updated upstream
 import axios from 'axios';
 import { db } from "@/lib/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuth } from "@/lib/AuthProvider";
 import { useRouter } from "next/navigation";
 
-=======
-import Chat from "@/components/Chat";
->>>>>>> Stashed changes
 
 export default function ChatPage() {
     interface Message {
@@ -100,7 +96,6 @@ export default function ChatPage() {
                 <div className="w-full">
                     <Navbar />
                 </div>
-<<<<<<< Updated upstream
                 
                 {/* Chat Container */}
                 <Card className="w-full max-w-2xl h-[75vh] p-6 rounded-2xl shadow-lg flex flex-col mt-6 overflow-hidden bg-[#1E2A38] border-[#68B3DF] border-2">
@@ -154,11 +149,6 @@ export default function ChatPage() {
                     </Button>
                 </div>
                 {/* Chat Messages (Scrollable) */}
-=======
-
-                {/* Chat Messages (Scrollable) */}
-                <Chat/>
->>>>>>> Stashed changes
             </div>
         </ProtectedRoute>
     );

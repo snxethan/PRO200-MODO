@@ -57,14 +57,7 @@ export default function Navbar() {
                     </Link>
                 )}
 
-<<<<<<< Updated upstream
                 <PopoverConfig isHidden={currentPath !== "/Console/Chat"} />
-=======
-                <PopoverConfig isHidden= {location?.pathname !== "/Console/Chat"} />
-
-                    
-                
->>>>>>> Stashed changes
             </div>
         </nav>
     );
