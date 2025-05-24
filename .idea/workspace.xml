@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a8da998c-e055-4402-bb5f-13c74ca41ce8" name="Changes" comment="a" />
+    <list default="true" id="a8da998c-e055-4402-bb5f-13c74ca41ce8" name="Changes" comment="changes to singup">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,7 +83,8 @@
       <workItem from="1741714113918" duration="4564000" />
       <workItem from="1741764522426" duration="3693000" />
       <workItem from="1741769472766" duration="710000" />
-      <workItem from="1741771081237" duration="789000" />
+      <workItem from="1741771081237" duration="1379000" />
+      <workItem from="1741798071500" duration="1573000" />
     </task>
     <task id="LOCAL-00001" summary="Added AI and Documentation saving!">
       <option name="closed" value="true" />
@@ -146,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741771720243</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="changes to singup">
+      <option name="closed" value="true" />
+      <created>1741771995205</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1741771995205</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +175,7 @@
     <MESSAGE value="changes signup &amp; login" />
     <MESSAGE value="xx" />
     <MESSAGE value="a" />
-    <option name="LAST_COMMIT_MESSAGE" value="a" />
+    <MESSAGE value="changes to singup" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes to singup" />
   </component>
 </project>
