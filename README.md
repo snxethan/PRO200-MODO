@@ -40,7 +40,7 @@ pnpm tsx server/server.tsx
 
 ## Author(s)
 
-- [**Ethan Townsend (snxethan)**](www.ethantownsend.dev)
+- [**Ethan Townsend (snxethan)**](https://www.ethantownsend.dev)
 - Victor Keeler
 - Jacob Brincefield
 - Romero Acosta
